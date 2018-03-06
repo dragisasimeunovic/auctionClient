@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" (submit) = "login()">
+    
+    <div class="form-group">
+      <mat-form-field>
+        <input type="text"
+                matInput 
+                placeholder="Ime" 
+                class="form-control"
+                formControlName="ime" 
+                required>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-group">
+        <mat-form-field>
+            <input type="text"
+                    matInput 
+                    placeholder="Prezime" 
+                    class="form-control"
+                    formControlName="prezime" 
+                    required>
+          </mat-form-field>
+    </div>
+
+    <button mat-button type="submit" [disabled] = "!loginForm.valid">Login!</button>
+  
+  </form>
+  
