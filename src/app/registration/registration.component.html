@@ -1,0 +1,108 @@
+<form [formGroup]="regForm" (submit) = "register()">
+    
+    <div class="form-group">
+      <mat-form-field>
+        <input type="text"
+                matInput 
+                placeholder="Ime" 
+                class="form-control"
+                formControlName="ime" 
+                required>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-group">
+        <mat-form-field>
+            <input type="text"
+                    matInput 
+                    placeholder="Prezime" 
+                    class="form-control"
+                    formControlName="prezime" 
+                    required>
+          </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+          <input type="text"
+                  matInput 
+                  placeholder="Email" 
+                  class="form-control"
+                  formControlName="email" 
+                  required>
+        </mat-form-field>
+      </div>
+
+    <div class="form-group">
+        <mat-form-field>
+          <input type="text"
+                  matInput 
+                  placeholder="Korisnicko ime" 
+                  class="form-control"
+                  formControlName="korisnickoIme" 
+                  required>
+        </mat-form-field>
+      </div>
+      
+      <div class="form-group">
+          <mat-form-field>
+              <input type="password"
+                      matInput 
+                      placeholder="Sifra" 
+                      class="form-control"
+                      formControlName="sifra" 
+                      required>
+            </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field>
+            <input type="text"
+                    matInput 
+                    placeholder="Adresa" 
+                    class="form-control"
+                    formControlName="adresa" 
+                    required>
+          </mat-form-field>
+        </div>
+        
+        <div class="form-group">
+            <mat-form-field>
+                <input type="text"
+                        matInput 
+                        placeholder="Grad" 
+                        class="form-control"
+                        formControlName="grad" 
+                        required>
+              </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field>
+              <input type="text"
+                      matInput 
+                      placeholder="Postanski broj" 
+                      class="form-control"
+                      formControlName="postanskiBroj" 
+                      required>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+              <mat-form-field>
+                  <mat-select placeholder="Tip" 
+                              class="form-control"
+                              formControlName="tip" 
+                              require>
+                    <mat-option value="korisnik"> Korisnik </mat-option>
+                    <mat-option value="firma"> Firma </mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </div>
+
+
+    <button mat-button type="submit" [disabled] = "!regForm.valid">Potvrdi registraciju!</button>
+  
+  </form>
+
+  <button mat-button type="button" (click) = "goToLogin()">Povratak na logovanje!</button>

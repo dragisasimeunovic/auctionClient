@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +11,23 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
     this.loginForm = new FormGroup({
-      ime: new FormControl('', Validators.required),
-      prezime : new FormControl('', Validators.required)
+      korisnickoIme: new FormControl('', Validators.required),
+      sifra : new FormControl('', Validators.required)
     });
     
   }
 
   login() {
     console.log('Pokusaj logovanja!');
+  }
+
+  goToRegistration() {
+    this.router.navigate(['/registration']);
   }
 
 }

@@ -41,13 +41,12 @@ import {
   MatStepperModule,
   MatFormFieldModule
 } from '@angular/material';
-import { LoginComponent } from './login/login.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule, routingComponents } from './/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,

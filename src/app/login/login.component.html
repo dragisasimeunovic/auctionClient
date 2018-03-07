@@ -4,25 +4,26 @@
       <mat-form-field>
         <input type="text"
                 matInput 
-                placeholder="Ime" 
+                placeholder="Korisnicko ime" 
                 class="form-control"
-                formControlName="ime" 
+                formControlName="korisnickoIme" 
                 required>
       </mat-form-field>
     </div>
     
     <div class="form-group">
         <mat-form-field>
-            <input type="text"
+            <input type="password"
                     matInput 
-                    placeholder="Prezime" 
+                    placeholder="Sifra" 
                     class="form-control"
-                    formControlName="prezime" 
+                    formControlName="sifra" 
                     required>
           </mat-form-field>
     </div>
 
-    <button mat-button type="submit" [disabled] = "!loginForm.valid">Login!</button>
+    <button mat-button type="submit" [disabled] = "!loginForm.valid">Uloguj se!</button>
   
   </form>
   
+  <button mat-button type="button" (click) = "goToRegistration()">Registruj se!</button>
