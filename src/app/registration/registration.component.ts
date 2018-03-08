@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistrationService } from './registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,8 +11,9 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
 
   regForm: FormGroup;
+  taskID: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private regService: RegistrationService) { }
 
   ngOnInit() {
 
@@ -27,10 +29,25 @@ export class RegistrationComponent implements OnInit {
       tip : new FormControl('', Validators.required)
     });
 
+    this.regService.processActivation().subscribe(
+      data => {
+        this.taskID = data.taskID;
+        console.log("Uspjesno pokrenut proces sa ID: " + this.taskID);
+      }
+    )
+
   }
 
   register() {
     console.log(this.regForm.value.tip);
+    this.regService.register(this.taskID, this.regForm.value).subscribe(
+      data => {
+        if (data.korisnik.tip == "firma") {
+          console.log("Ovo mi treba: " + data.taskId);
+          this.router.navigate(['/firmRegistration', data.taskId, data.userID]);
+        }
+      }
+    )
   }
 
   goToLogin() {

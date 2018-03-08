@@ -43,6 +43,11 @@ import {
 } from '@angular/material';
 import { AppRoutingModule, routingComponents } from './/app-routing.module';
 
+import { RegistrationService } from './registration/registration.service';
+import { FirmService } from './firm-registration/firm.service';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,9 +90,11 @@ import { AppRoutingModule, routingComponents } from './/app-routing.module';
     MatTooltipModule,
     MatStepperModule,
     MatFormFieldModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RegistrationService, FirmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
