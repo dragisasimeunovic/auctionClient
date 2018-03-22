@@ -13,15 +13,15 @@
     
 
     <div class="form-group">
-              <mat-form-field>
-                  <mat-select placeholder="Kategorija" 
-                              class="form-control"
-                              formControlName="kategorija" 
-                              require>
-                    <mat-option *ngFor="let kat of kategorije" value="{{kat.sifra}}">{{kat.ime}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-          </div>
+        <mat-form-field>
+            <mat-select placeholder="Kategorija" 
+                        class="form-control"
+                        formControlName="kategorija" 
+                        require>
+              <mat-option *ngFor="let kat of kategorije" value="{{kat.sifra}}">{{kat.ime}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
 
 
     <button mat-button type="submit" [disabled] = "!firmRegForm.valid">Potvrdi registraciju firme!</button>

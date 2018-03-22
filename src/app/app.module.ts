@@ -47,6 +47,8 @@ import { RegistrationService } from './registration/registration.service';
 import { FirmService } from './firm-registration/firm.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login/login.service';
+import { SupplyRequestService } from './supply-request/supply-request.service';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpModule,
     HttpClientModule
   ],
-  providers: [RegistrationService, FirmService],
+  providers: [RegistrationService, FirmService, LoginService, SupplyRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

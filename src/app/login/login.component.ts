@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
 
@@ -23,7 +24,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('Pokusaj logovanja!');
+    this.loginService.login(this.loginForm.value.korisnickoIme, this.loginForm.value.sifra).subscribe(
+      data => {
+        if (data.tip == "korisnik") {
+          console.log("Uspjesno logovanje korisnika: " + data.ime);
+          this.router.navigate(['/supplyRequest']);
+        }
+        else {
+
+        }
+      }
+    );
   }
 
   goToRegistration() {

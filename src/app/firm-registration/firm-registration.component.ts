@@ -35,13 +35,14 @@ export class FirmRegistrationComponent implements OnInit {
     this.userID = parseInt(this.route.snapshot.paramMap.get('userID'));
     
   }
-registerFirm(){
-  console.log(this.firmRegForm.value.tip);
-    this.firmService.registerFirm(this.taskID, this.userID, this.firmRegForm.value).subscribe(
-      data => {
-        console.log(data);
-      }
-    )
-}
+  
+  registerFirm(){
+    console.log(this.firmRegForm.value.tip);
+      this.firmService.registerFirm(this.taskID, this.userID, this.firmRegForm.value).subscribe(
+        data => {
+          console.log(data);
+        }
+      )
+  }
 
 }
