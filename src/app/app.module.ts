@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AgmCoreModule } from '@agm/core';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -94,7 +96,10 @@ import { SupplyRequestService } from './supply-request/supply-request.service';
     MatFormFieldModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAu5rVyLja8ZliWID5bV-6mKW8qbZ63tVk'
+    })
   ],
   providers: [RegistrationService, FirmService, LoginService, SupplyRequestService],
   bootstrap: [AppComponent]

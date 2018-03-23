@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Aukciju';
+
+  lat: number = 45.267136;
+  lng: number = 19.833549;
+
+  setNewLocation(lat, long) {
+    console.log(lat + ", " + long);
+  }
+
 }

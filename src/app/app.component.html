@@ -5,6 +5,11 @@
   </h1>
 
   <router-outlet></router-outlet>
+  <div>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="setNewLocation(lat, lng)"></agm-marker>
+  </agm-map>
+  </div>
 
 </div>
 
