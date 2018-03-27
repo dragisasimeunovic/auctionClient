@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'firmRegistration/:taskID/:userID', component: FirmRegistrationComponent, pathMatch: 'full'},
-  {path: 'supplyRequest', component: SupplyRequestComponent}
+  {path: 'supplyRequest/:userID', component: SupplyRequestComponent}
 ];
 
 @NgModule({

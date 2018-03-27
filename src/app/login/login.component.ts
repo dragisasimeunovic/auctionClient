@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       data => {
         if (data.tip == "korisnik") {
           console.log("Uspjesno logovanje korisnika: " + data.ime);
-          this.router.navigate(['/supplyRequest']);
+          this.router.navigate(['/supplyRequest', data.id]);
         }
         else {
 

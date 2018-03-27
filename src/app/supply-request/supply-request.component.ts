@@ -1,7 +1,7 @@
 import { SupplyRequestService } from './supply-request.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FirmService } from '../firm-registration/firm.service';
 
 @Component({
@@ -13,8 +13,9 @@ export class SupplyRequestComponent implements OnInit {
 
   supplyRequestForm: FormGroup;
   kategorije: any;
+  userID: number;
 
-  constructor(private router: Router, private firmService: FirmService, private supplyRequestService: SupplyRequestService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private firmService: FirmService, private supplyRequestService: SupplyRequestService) { }
 
   ngOnInit() {
 
@@ -34,10 +35,13 @@ export class SupplyRequestComponent implements OnInit {
       }
     )
 
+    this.userID = parseInt(this.route.snapshot.paramMap.get('userID'));
+
   }
 
   supplyRequestSave(){
-    this.supplyRequestService.supplyRequestSave(this.supplyRequestForm.value).subscribe(
+    console.log(this.userID);
+    this.supplyRequestService.supplyRequestSave(this.supplyRequestForm.value, this.userID).subscribe(
       data => {
         console.log(data.opis);
       }

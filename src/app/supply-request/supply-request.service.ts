@@ -8,8 +8,8 @@ export class SupplyRequestService {
 
   constructor(private http: Http) { }
 
-  supplyRequestSave(supplyRequest: any) {
-    return this.http.post(this.API_URL + "/nabavka/saveSupplyRequest", supplyRequest).map(res=>res.json());
+  supplyRequestSave(supplyRequest: any, userID: number) {
+    return this.http.post(this.API_URL + "/nabavka/saveSupplyRequest/" + userID, supplyRequest).map(res=>res.json());
   }
 
 }
