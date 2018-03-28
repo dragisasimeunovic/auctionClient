@@ -1,0 +1,35 @@
+<mat-accordion *ngFor="let ponuda of ponude">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ponuda.zahtevZaNabavku.korisnik.ime}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ponuda.zahtevZaNabavku.opis}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input  type="number"
+              matInput
+              [(ngModel)] = "ponuda.cijena"
+              placeholder="Cijena"
+              required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [matDatepicker]="rokZaIzvrsavanje"
+              matInput
+              [(ngModel)] = "ponuda.rokZaIzvrsavanje"
+              placeholder="Rok za izvrsavanje"
+              required>
+      <mat-datepicker-toggle matSuffix [for]="rokZaIzvrsavanje">
+      </mat-datepicker-toggle>
+      <mat-datepicker #rokZaIzvrsavanje></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-button color="primary" (click) = "ponuda.status = 'POSLATA'; posaljiPonudu(ponuda)" >Posalji ponudu</button>
+    <button mat-button color="warn" (click) = "ponuda.status = 'ODBIJENA'; posaljiPonudu(ponuda)" >Odustani</button>
+
+  </mat-expansion-panel>
+</mat-accordion>

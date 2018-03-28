@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/supplyRequest', data.id]);
         }
         else {
-
+          this.router.navigate(['/offersReview', data.id]);
         }
       }
     );

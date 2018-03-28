@@ -51,6 +51,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login/login.service';
 import { SupplyRequestService } from './supply-request/supply-request.service';
+import { OffersReviewService } from './offers-review/offers-review.service';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,7 @@ import { SupplyRequestService } from './supply-request/supply-request.service';
       apiKey: 'AIzaSyAu5rVyLja8ZliWID5bV-6mKW8qbZ63tVk'
     })
   ],
-  providers: [RegistrationService, FirmService, LoginService, SupplyRequestService],
+  providers: [RegistrationService, FirmService, LoginService, SupplyRequestService, OffersReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
